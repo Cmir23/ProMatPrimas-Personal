@@ -9,40 +9,25 @@ class Lote extends Model
 {
     use HasFactory;
 
-    // Especificar tabla y clave primaria
-    protected $table = 'lote';
-    protected $primaryKey = 'LoteId';
-
+    protected $table = 'lotes';
+    
     protected $fillable = [
-        'UsuarioId',
-        'Nombre',
-        'Ubicacion',
-        'Superficie',
-        'Cultivo',
-        'FechaSiembra',
-        'EstadoActual',
-        'ImagenUrl'
-    ];
+    'codigo_lote',
+    'tipo_cultivo',
+    'variedad',
+    'fecha_cosecha',
+    'cantidad_kg',
+    'ubicacion_origen',
+    'estado',
+    'observaciones',
+    'responsable',
+    'precio_kg',
+    'imagen_url'  
+];
 
     protected $casts = [
-        'FechaSiembra' => 'date',
-        'Superficie' => 'decimal:2'
+        'fecha_cosecha' => 'date',
+        'cantidad_kg' => 'decimal:2',
+        'precio_kg' => 'decimal:2'
     ];
-
-    // Relación con Usuario
-    public function usuario()
-    {
-        return $this->belongsTo(Usuario::class, 'UsuarioId', 'UsuarioId');
-    }
-
-    // Scopes para filtrar
-    public function scopeByEstado($query, $estado)
-    {
-        return $query->where('EstadoActual', $estado);
-    }
-
-    public function scopeByCultivo($query, $cultivo)
-    {
-        return $query->where('Cultivo', 'like', '%' . $cultivo . '%');
-    }
 }

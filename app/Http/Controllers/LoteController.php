@@ -31,18 +31,19 @@ class LoteController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'codigo_lote' => 'required|string|max:50|unique:lotes',
-            'tipo_cultivo' => 'required|string|max:100',
-            'variedad' => 'nullable|string|max:100',
-            'fecha_cosecha' => 'required|date',
-            'cantidad_kg' => 'required|numeric|min:0',
-            'ubicacion_origen' => 'required|string|max:200',
-            'estado' => 'required|in:cosechado,procesando,almacenado,entregado',
-            'observaciones' => 'nullable|string',
-            'responsable' => 'required|string|max:100',
-            'precio_kg' => 'nullable|numeric|min:0'
-        ]);
+        $validated = $request->validate([
+    'codigo_lote' => 'required|string|max:50|unique:lotes',
+    'tipo_cultivo' => 'required|string|max:100',
+    'variedad' => 'nullable|string|max:100',
+    'fecha_cosecha' => 'required|date',
+    'cantidad_kg' => 'required|numeric|min:0',
+    'ubicacion_origen' => 'required|string|max:200',
+    'estado' => 'required|in:cosechado,procesando,almacenado,entregado',
+    'observaciones' => 'nullable|string',
+    'responsable' => 'required|string|max:100',
+    'precio_kg' => 'nullable|numeric|min:0',
+    'imagen_url' => 'nullable|url|max:500'  
+]);
 
         Lote::create($request->all());
 

@@ -158,6 +158,22 @@
                         @enderror
                     </div>
 
+
+                    <!-- Imagen URL -->
+                    <div class="mb-3">
+                        <label for="imagen_url" class="form-label">
+                            <i class="fas fa-image me-1"></i>URL de Imagen
+                        </label>
+                        <input type="url" class="form-control @error('imagen_url') is-invalid @enderror" 
+                            id="imagen_url" name="imagen_url" value="{{ old('imagen_url') }}" 
+                            placeholder="https://ejemplo.com/imagen.jpg (opcional)">
+                        @error('imagen_url')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <div class="form-text">URL de imagen del lote para la aplicación móvil</div>
+                    </div>
+
+                    
                     <!-- Botones -->
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('lotes.index') }}" class="btn btn-secondary">
