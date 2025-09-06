@@ -15,4 +15,4 @@ Route::resource('usuarioroles', UsuarioRolController::class);
 
 // Agregar estas líneas para lotes
 Route::resource('lotes', LoteController::class);
-Route::get('/lotes-search', [LoteController::class, 'search'])->name('lotes.search');
+Route::get('/lotes/search', [LoteController::class, 'search'])->name('lotes.search');

@@ -23,21 +23,20 @@ class UsuarioController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $usuario = Usuario::create([
-            'nombre' => $request->nombre,
-            'email' => $request->email,
-            'telefono' => $request->telefono,
-            'password_hash' => bcrypt($request->password),
-            'imagen_url' => $request->imagen_url,
-            'activo' => $request->activo ?? true,
-        ]);
+{
+    $usuario = Usuario::create([
+        'nombre' => $request->nombre,
+        'email' => $request->email,
+        'telefono' => $request->telefono,
+        'password' => bcrypt($request->password)  // Hashear contraseña
+    ]);
 
+    if ($request->roles) {
         $usuario->roles()->attach($request->roles);
-
-        return redirect()->route('usuarios.index');
     }
 
+    return redirect()->route('usuarios.index');
+}
     public function edit($id)
     {
         $usuario = Usuario::findOrFail($id);
