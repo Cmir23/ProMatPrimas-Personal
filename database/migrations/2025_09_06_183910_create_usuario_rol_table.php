@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('usuario_rol', function (Blueprint $table) {
             $table->id('usuario_rol_id');
-            $table->foreignId('usuario_id')->constrained('usuario', 'UsuarioId')->onDelete('cascade');
+            $table->foreignId('usuario_id')->constrained('users', 'id')->onDelete('cascade');
             $table->foreignId('rol_id')->constrained('rol', 'rol_id')->onDelete('cascade');
             
             $table->unique(['usuario_id', 'rol_id']);

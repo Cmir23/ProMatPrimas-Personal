@@ -1,0 +1,5 @@
+[33m9dd6f59[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32munificacion-local[m[33m, [m[1;31morigin/unificacion-local[m[33m)[m Remove duplicate migration and fix table references
+[33m715bd03[m[33m ([m[1;31mpersonal/main[m[33m)[m feat: Sistema completo de trazabilidad agrícola
+[33m53d14a4[m[33m ([m[1;32mfeature/crud-lotes[m[33m)[m Feat: Actualizar estructura de lotes y formulario con imagen_url
+[33m174328b[m[33m ([m[1;31morigin/feature/crud-lotes[m[33m)[m Implementar CRUD completo de lotes
+[33m765882d[m[33m ([m[1;32mmain[m[33m)[m usuario_rol_usuarioRol_CRUDS
